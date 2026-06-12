@@ -26,17 +26,17 @@ Add your new source to the source configuration in `/shared/pre-sources.ts`:
 
 ```
   "bilibili": {
-  name: "哔哩哔哩",
+  name: "Bilibili",
   color: "blue",
   home: "https://www.bilibili.com",
   sub: {
     "hot-search": {
-      title: "热搜",
+      title: "Hot Search",
       column: "china",
       type: "hottest"
     },
     "hot-video": {  // Add your new sub-source here
-      title: "热门视频",
+      title: "Popular Videos",
       column: "china",
       type: "hottest"
     }
@@ -103,7 +103,7 @@ const hotVideo = defineSource(async () => {
     url: `https://www.bilibili.com/video/${video.bvid}`,
     pubDate: video.pubdate * 1000,
     extra: {
-      info: `${video.owner.name} · ${formatNumber(video.stat.view)}观看 · ${formatNumber(video.stat.like)}点赞`,
+      info: `${video.owner.name} · ${formatNumber(video.stat.view)} views · ${formatNumber(video.stat.like)} likes`,
       hover: video.desc,
       icon: video.pic,
     },

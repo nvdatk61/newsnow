@@ -37,7 +37,7 @@ export default defineEventHandler(async (event) => {
     headers: {
       "Accept": "application/vnd.github+json",
       "Authorization": `token ${response.access_token}`,
-      // 必须有 user-agent，在 cloudflare worker 会报错
+      // A user-agent is required, otherwise it errors out in the Cloudflare worker
       "User-Agent": "NewsNow App",
     },
   })
@@ -53,7 +53,7 @@ export default defineEventHandler(async (event) => {
     .setProtectedHeader({ alg: "HS256" })
     .sign(new TextEncoder().encode(process.env.JWT_SECRET!))
 
-  // nitro 有 bug，在 cloudflare 里没法 set cookie
+  // nitro has a bug: cookies can't be set on Cloudflare
   // seconds
   // const maxAge = 60 * 24 * 60 * 60
   // setCookie(event, "user_jwt", jwtToken, { maxAge })

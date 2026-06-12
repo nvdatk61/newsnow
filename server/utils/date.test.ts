@@ -14,22 +14,22 @@ describe("parseRelativeDate", () => {
 
   const weekday = (d: number) => +new Date(date.getFullYear(), date.getMonth(), date.getDate() + d - (date.getDay() > d ? date.getDay() : date.getDay() + 7))
 
-  // 固定时间
+  // Fixed time
   MockDate.set(date)
 
-  it("s秒钟前", () => {
+  it("zh: seconds ago", () => {
     expect(+new Date(parseRelativeDate("10秒前"))).toBe(+date - 10 * second)
   })
 
-  it("m分钟前", () => {
+  it("zh: minutes ago", () => {
     expect(+new Date(parseRelativeDate("10分钟前"))).toBe(+date - 10 * minute)
   })
 
-  it("m分鐘前", () => {
+  it("zh: minutes ago (traditional)", () => {
     expect(+new Date(parseRelativeDate("10分鐘前"))).toBe(+date - 10 * minute)
   })
 
-  it("m分钟后", () => {
+  it("zh: minutes later", () => {
     expect(+new Date(parseRelativeDate("10分钟后"))).toBe(+date + 10 * minute)
   })
 
@@ -53,51 +53,51 @@ describe("parseRelativeDate", () => {
     expect(+new Date(parseRelativeDate("in an hour"))).toBe(+date + 1 * hour)
   })
 
-  it("h小时前", () => {
+  it("zh: hours ago", () => {
     expect(+new Date(parseRelativeDate("10小时前"))).toBe(+date - 10 * hour)
   })
 
-  it("h个小时前", () => {
+  it("zh: hours ago (with measure word)", () => {
     expect(+new Date(parseRelativeDate("10个小时前"))).toBe(+date - 10 * hour)
   })
 
-  it("d天前", () => {
+  it("zh: days ago", () => {
     expect(+new Date(parseRelativeDate("10天前"))).toBe(+date - 10 * day)
   })
 
-  it("w周前", () => {
+  it("zh: weeks ago", () => {
     expect(+new Date(parseRelativeDate("10周前"))).toBe(+date - 10 * week)
   })
 
-  it("w星期前", () => {
+  it("zh: weeks ago (xingqi variant)", () => {
     expect(+new Date(parseRelativeDate("10星期前"))).toBe(+date - 10 * week)
   })
 
-  it("w个星期前", () => {
+  it("zh: weeks ago (ge-xingqi variant)", () => {
     expect(+new Date(parseRelativeDate("10个星期前"))).toBe(+date - 10 * week)
   })
 
-  it("m月前", () => {
+  it("zh: months ago", () => {
     expect(+new Date(parseRelativeDate("1月前"))).toBe(+date - 1 * month)
   })
 
-  it("m个月前", () => {
+  it("zh: months ago (with measure word)", () => {
     expect(+new Date(parseRelativeDate("1个月前"))).toBe(+date - 1 * month)
   })
 
-  it("y年前", () => {
+  it("zh: years ago", () => {
     expect(+new Date(parseRelativeDate("1年前"))).toBe(+date - 1 * year)
   })
 
-  it("y年M个月前", () => {
+  it("zh: years and months ago", () => {
     expect(+new Date(parseRelativeDate("1年1个月前"))).toBe(+date - 1 * year - 1 * month)
   })
 
-  it("d天H小时前", () => {
+  it("zh: days and hours ago", () => {
     expect(+new Date(parseRelativeDate("1天1小时前"))).toBe(+date - 1 * day - 1 * hour)
   })
 
-  it("h小时m分钟s秒钟前", () => {
+  it("zh: hours, minutes and seconds ago", () => {
     expect(+new Date(parseRelativeDate("1小时1分钟1秒钟前"))).toBe(+date - 1 * hour - 1 * minute - 1 * second)
   })
 
@@ -105,11 +105,11 @@ describe("parseRelativeDate", () => {
     expect(+new Date(parseRelativeDate("1d 1h 1m 1s ago"))).toBe(+date - 1 * day - 1 * hour - 1 * minute - 1 * second)
   })
 
-  it("h小时m分钟s秒钟后", () => {
+  it("zh: hours, minutes and seconds later", () => {
     expect(+new Date(parseRelativeDate("1小时1分钟1秒钟后"))).toBe(+date + 1 * hour + 1 * minute + 1 * second)
   })
 
-  it("今天", () => {
+  it("zh: today", () => {
     expect(+new Date(parseRelativeDate("今天"))).toBe(+date.setHours(0, 0, 0, 0))
   })
 
@@ -125,35 +125,35 @@ describe("parseRelativeDate", () => {
     expect(+new Date(parseRelativeDate("TDA 08:00:00"))).toBe(+date + 8 * hour)
   })
 
-  it("今天 H:m", () => {
+  it("zh: today H:m", () => {
     expect(+new Date(parseRelativeDate("今天 08:00"))).toBe(+date + 8 * hour)
   })
 
-  it("今天H点m分", () => {
+  it("zh: today with hour/minute markers", () => {
     expect(+new Date(parseRelativeDate("今天8点0分"))).toBe(+date + 8 * hour)
   })
 
-  it("昨日H点m分s秒", () => {
+  it("zh: yesterday with hour/minute/second markers", () => {
     expect(+new Date(parseRelativeDate("昨日20时0分0秒"))).toBe(+date - 4 * hour)
   })
 
-  it("前天 H:m", () => {
+  it("zh: the day before yesterday H:m", () => {
     expect(+new Date(parseRelativeDate("前天 20:00"))).toBe(+date - 1 * day - 4 * hour)
   })
 
-  it("明天 H:m", () => {
+  it("zh: tomorrow H:m", () => {
     expect(+new Date(parseRelativeDate("明天 20:00"))).toBe(+date + 1 * day + 20 * hour)
   })
 
-  it("星期几 h:m", () => {
+  it("zh: weekday (xingqi form) h:m", () => {
     expect(+new Date(parseRelativeDate("星期一 8:00"))).toBe(weekday(1) + 8 * hour)
   })
 
-  it("周几 h:m", () => {
+  it("zh: weekday (zhou form) h:m", () => {
     expect(+new Date(parseRelativeDate("周二 8:00"))).toBe(weekday(2) + 8 * hour)
   })
 
-  it("星期天 h:m", () => {
+  it("zh: Sunday h:m", () => {
     expect(+new Date(parseRelativeDate("星期天 8:00"))).toBe(weekday(7) + 8 * hour)
   })
 

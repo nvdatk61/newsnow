@@ -32,13 +32,6 @@ export const originSources = {
       },
     },
   },
-  "steam": {
-    name: "Steam",
-    color: "gray",
-    column: "tech",
-    type: "hottest",
-    home: "https://store.steampowered.com/",
-  },
   "vnexpress": {
     name: "VnExpress",
     color: "red",

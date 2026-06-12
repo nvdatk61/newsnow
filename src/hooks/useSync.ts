@@ -27,7 +27,7 @@ async function downloadMetadata(): Promise<PrimitiveMetadata | undefined> {
       Authorization: `Bearer ${jwt}`,
     },
   }) as PrimitiveMetadata
-  // 不用同步 action 字段
+  // No need to sync the action field
   if (data) {
     return {
       action: "sync",
@@ -48,10 +48,10 @@ export function useSync() {
         await uploadMetadata(primitiveMetadata)
       } catch (e: any) {
         if (e.statusCode !== 506) {
-          toaster("身份校验失败，无法同步，请重新登录", {
+          toaster("Authentication failed, unable to sync. Please log in again", {
             type: "error",
             action: {
-              label: "登录",
+              label: "Log in",
               onClick: login,
             },
           })
@@ -73,10 +73,10 @@ export function useSync() {
         }
       } catch (e: any) {
         if (e.statusCode !== 506) {
-          toaster("身份校验失败，无法同步，请重新登录", {
+          toaster("Authentication failed, unable to sync. Please log in again", {
             type: "error",
             action: {
-              label: "登录",
+              label: "Log in",
               onClick: login,
             },
           })

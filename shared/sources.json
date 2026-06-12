@@ -26,14 +26,6 @@
     "interval": 600000,
     "title": "Today"
   },
-  "steam": {
-    "name": "Steam",
-    "type": "hottest",
-    "column": "tech",
-    "home": "https://store.steampowered.com/",
-    "color": "gray",
-    "interval": 600000
-  },
   "vnexpress": {
     "name": "VnExpress",
     "type": "hottest",
