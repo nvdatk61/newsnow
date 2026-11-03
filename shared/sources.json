@@ -86,14 +86,6 @@
     "color": "green",
     "interval": 600000
   },
-  "vietnamnet": {
-    "name": "VietnamNet",
-    "type": "realtime",
-    "column": "vietnam",
-    "home": "https://vietnamnet.vn/",
-    "color": "rose",
-    "interval": 600000
-  },
   "genk": {
     "name": "GenK",
     "type": "realtime",

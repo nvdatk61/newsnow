@@ -9,6 +9,5 @@ declare module 'glob:./sources/{*.ts,**/index.ts}' {
   export const tien24h: typeof import('./sources/tien24h')
   export const tinhte: typeof import('./sources/tinhte')
   export const tuoitre: typeof import('./sources/tuoitre')
-  export const vietnamnet: typeof import('./sources/vietnamnet')
   export const vnexpress: typeof import('./sources/vnexpress')
 }

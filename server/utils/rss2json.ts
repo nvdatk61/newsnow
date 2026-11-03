@@ -16,6 +16,8 @@ export async function rss2json(url: string): Promise<RSSInfo | undefined> {
 
   let channel = result.rss && result.rss.channel ? result.rss.channel : result.feed
   if (Array.isArray(channel)) channel = channel[0]
+  // Blocked requests often get an HTML page instead of XML
+  if (!channel) throw new Error(`${url} did not return an RSS/Atom feed`)
 
   const rss = {
     title: channel.title ?? "",
