@@ -10,6 +10,16 @@ export function defineSource(source: SourceGetter | R): SourceGetter | R {
   return source
 }
 
+/**
+ * Parse feed dates on the server so browsers (Safari, Firefox) don't have to
+ * handle non-standard forms like "Tue, 03 Nov 2026 15:00:00 +07"
+ */
+function toTimestamp(date: unknown) {
+  if (date == null || date === "") return undefined
+  const t = Date.parse(String(date))
+  return Number.isNaN(t) ? String(date) : t
+}
+
 export function defineRSSSource(url: string, option?: SourceOption): SourceGetter {
   return async () => {
     const data = await rss2json(url)
@@ -26,7 +36,7 @@ export function defineRSSSource(url: string, option?: SourceOption): SourceGette
         title,
         url: link,
         id: link,
-        pubDate: !option?.hiddenDate ? item.created : undefined,
+        pubDate: !option?.hiddenDate ? toTimestamp(item.created) : undefined,
       })
     }
     return news

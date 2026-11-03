@@ -7,7 +7,6 @@ declare module 'glob:./sources/{*.ts,**/index.ts}' {
   export const hackernews: typeof import('./sources/hackernews')
   export const thanhnien: typeof import('./sources/thanhnien')
   export const tien24h: typeof import('./sources/tien24h')
-  export const tinhte: typeof import('./sources/tinhte')
   export const tuoitre: typeof import('./sources/tuoitre')
   export const vnexpress: typeof import('./sources/vnexpress')
 }
