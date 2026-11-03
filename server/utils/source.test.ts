@@ -52,6 +52,11 @@ describe("defineRSSSource", () => {
     expect(items.every(i => i.pubDate === undefined)).toBe(true)
   })
 
+  it("throws a clear error when the site returns HTML instead of a feed", async () => {
+    vi.mocked(myFetch).mockResolvedValue(`<!DOCTYPE html><html><body>Access denied</body></html>` as any)
+    await expect(defineRSSSource("https://example.com/rss")()).rejects.toThrow("https://example.com/rss did not return an RSS/Atom feed")
+  })
+
   it("throws on an empty feed so the cached data is served instead", async () => {
     vi.mocked(myFetch).mockResolvedValue(`<rss><channel><title>x</title></channel></rss>` as any)
     await expect(defineRSSSource("https://example.com/rss")()).rejects.toThrow("Cannot fetch rss data")
