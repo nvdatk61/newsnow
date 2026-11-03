@@ -9,6 +9,6 @@ export const Route = createFileRoute("/")({
 function IndexComponent() {
   const focusSources = useAtomValue(focusSourcesAtom)
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  const id = useMemo(() => focusSources.length ? "focus" : "hottest", [])
+  const id = useMemo(() => focusSources.length ? "focus" : "vietnam", [])
   return <Column id={id} />
 }

@@ -27,19 +27,87 @@
     "title": "Today"
   },
   "vnexpress": {
+    "redirect": "vnexpress-latest",
     "name": "VnExpress",
-    "type": "hottest",
+    "type": "realtime",
+    "column": "vietnam",
+    "home": "https://vnexpress.net/",
+    "color": "red",
+    "interval": 600000,
+    "title": "Mới nhất"
+  },
+  "vnexpress-latest": {
+    "name": "VnExpress",
+    "type": "realtime",
+    "column": "vietnam",
+    "home": "https://vnexpress.net/",
+    "color": "red",
+    "interval": 600000,
+    "title": "Mới nhất"
+  },
+  "vnexpress-tech": {
+    "name": "VnExpress",
+    "type": "realtime",
     "column": "tech",
     "home": "https://vnexpress.net/",
     "color": "red",
-    "interval": 600000
+    "interval": 600000,
+    "title": "Khoa học công nghệ"
   },
   "tien24h": {
     "name": "24h",
-    "type": "hottest",
-    "column": "tech",
+    "type": "realtime",
+    "column": "vietnam",
     "home": "https://www.24h.com.vn/",
     "color": "blue",
+    "interval": 600000
+  },
+  "tuoitre": {
+    "name": "Tuổi Trẻ",
+    "type": "realtime",
+    "column": "vietnam",
+    "home": "https://tuoitre.vn/",
+    "color": "red",
+    "interval": 600000
+  },
+  "thanhnien": {
+    "name": "Thanh Niên",
+    "type": "realtime",
+    "column": "vietnam",
+    "home": "https://thanhnien.vn/",
+    "color": "sky",
+    "interval": 600000
+  },
+  "dantri": {
+    "name": "Dân Trí",
+    "type": "realtime",
+    "column": "vietnam",
+    "home": "https://dantri.com.vn/",
+    "color": "green",
+    "interval": 600000
+  },
+  "vietnamnet": {
+    "name": "VietnamNet",
+    "type": "realtime",
+    "column": "vietnam",
+    "home": "https://vietnamnet.vn/",
+    "color": "rose",
+    "interval": 600000
+  },
+  "genk": {
+    "name": "GenK",
+    "type": "realtime",
+    "column": "tech",
+    "home": "https://genk.vn/",
+    "color": "orange",
+    "interval": 600000
+  },
+  "tinhte": {
+    "name": "Tinh tế",
+    "type": "realtime",
+    "column": "tech",
+    "home": "https://tinhte.vn/",
+    "color": "teal",
     "interval": 600000
   }
 }

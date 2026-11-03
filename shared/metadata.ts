@@ -3,6 +3,9 @@ import { typeSafeObjectEntries, typeSafeObjectFromEntries } from "./type.util"
 import type { ColumnID, HiddenColumnID, Metadata, SourceID } from "./types"
 
 export const columns = {
+  vietnam: {
+    zh: "Vietnam",
+  },
   tech: {
     zh: "Technology",
   },
@@ -14,7 +17,7 @@ export const columns = {
   },
 } as const
 
-export const fixedColumnIds = ["focus", "hottest"] as const satisfies Partial<ColumnID>[]
+export const fixedColumnIds = ["focus", "vietnam", "tech", "hottest"] as const satisfies Partial<ColumnID>[]
 export const hiddenColumns = Object.keys(columns).filter(id => !fixedColumnIds.includes(id as any)) as HiddenColumnID[]
 
 export const metadata: Metadata = typeSafeObjectFromEntries(typeSafeObjectEntries(columns).map(([k, v]) => {

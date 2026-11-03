@@ -13,14 +13,14 @@ const Time = {
 }
 
 export const originSources = {
-  "hackernews": {
+  hackernews: {
     name: "Hacker News",
     color: "orange",
     column: "tech",
     type: "hottest",
     home: "https://news.ycombinator.com/",
   },
-  "github": {
+  github: {
     name: "Github",
     color: "gray",
     home: "https://github.com/",
@@ -32,20 +32,71 @@ export const originSources = {
       },
     },
   },
-  "vnexpress": {
+  vnexpress: {
     name: "VnExpress",
     color: "red",
-    column: "tech",
-    type: "hottest",
+    type: "realtime",
+    column: "vietnam",
     home: "https://vnexpress.net/",
+    sub: {
+      latest: {
+        title: "Mới nhất",
+      },
+      tech: {
+        title: "Khoa học công nghệ",
+        column: "tech",
+      },
+    },
   },
-  "tien24h": {
+  tien24h: {
     name: "24h",
     color: "blue",
-    column: "tech",
-    type: "hottest",
+    type: "realtime",
+    column: "vietnam",
     home: "https://www.24h.com.vn/",
-  }
+  },
+  tuoitre: {
+    name: "Tuổi Trẻ",
+    color: "red",
+    type: "realtime",
+    column: "vietnam",
+    home: "https://tuoitre.vn/",
+  },
+  thanhnien: {
+    name: "Thanh Niên",
+    color: "sky",
+    type: "realtime",
+    column: "vietnam",
+    home: "https://thanhnien.vn/",
+  },
+  dantri: {
+    name: "Dân Trí",
+    color: "green",
+    type: "realtime",
+    column: "vietnam",
+    home: "https://dantri.com.vn/",
+  },
+  vietnamnet: {
+    name: "VietnamNet",
+    color: "rose",
+    type: "realtime",
+    column: "vietnam",
+    home: "https://vietnamnet.vn/",
+  },
+  genk: {
+    name: "GenK",
+    color: "orange",
+    type: "realtime",
+    column: "tech",
+    home: "https://genk.vn/",
+  },
+  tinhte: {
+    name: "Tinh tế",
+    color: "teal",
+    type: "realtime",
+    column: "tech",
+    home: "https://tinhte.vn/",
+  },
 } as const satisfies Record<string, OriginSource>
 
 export function genSources() {
