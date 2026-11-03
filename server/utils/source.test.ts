@@ -28,7 +28,7 @@ const feed = `<?xml version="1.0" encoding="UTF-8"?>
   <item>
     <title>Tiêu đề thứ hai &amp; ký tự</title>
     <link>https://example.com/b.html</link>
-    <pubDate>Tue, 03 Nov 2026 08:00:00 +0700</pubDate>
+    <pubDate>Tue, 03 Nov 2026 08:00:00 +07</pubDate>
   </item>
 </channel></rss>`
 
@@ -41,8 +41,8 @@ describe("defineRSSSource", () => {
     vi.mocked(myFetch).mockResolvedValue(feed as any)
     const items = await defineRSSSource("https://example.com/rss")()
     expect(items).toEqual([
-      { id: "https://example.com/a.html", url: "https://example.com/a.html", title: "Tiêu đề thứ nhất", pubDate: "Tue, 03 Nov 2026 10:00:00 +0700" },
-      { id: "https://example.com/b.html", url: "https://example.com/b.html", title: "Tiêu đề thứ hai & ký tự", pubDate: "Tue, 03 Nov 2026 08:00:00 +0700" },
+      { id: "https://example.com/a.html", url: "https://example.com/a.html", title: "Tiêu đề thứ nhất", pubDate: Date.UTC(2026, 10, 3, 3) },
+      { id: "https://example.com/b.html", url: "https://example.com/b.html", title: "Tiêu đề thứ hai & ký tự", pubDate: Date.UTC(2026, 10, 3, 1) },
     ])
   })
 

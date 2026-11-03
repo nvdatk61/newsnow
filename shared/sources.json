@@ -93,13 +93,5 @@
     "home": "https://genk.vn/",
     "color": "orange",
     "interval": 600000
-  },
-  "tinhte": {
-    "name": "Tinh tế",
-    "type": "realtime",
-    "column": "tech",
-    "home": "https://tinhte.vn/",
-    "color": "teal",
-    "interval": 600000
   }
 }

@@ -83,13 +83,6 @@ export const originSources = {
     column: "tech",
     home: "https://genk.vn/",
   },
-  tinhte: {
-    name: "Tinh tế",
-    color: "teal",
-    type: "realtime",
-    column: "tech",
-    home: "https://tinhte.vn/",
-  },
 } as const satisfies Record<string, OriginSource>
 
 export function genSources() {
