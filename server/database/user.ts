@@ -31,7 +31,7 @@ export class UserTable {
       await this.db.prepare(`INSERT INTO user (id, email, data, type, created, updated) VALUES (?, ?, ?, ?, ?, ?)`)
         .run(id, email, "", type, now, now)
       logger.success(`add user ${id}`)
-    } else if (u.email !== email && u.type !== type) {
+    } else if (u.email !== email) {
       await this.db.prepare(`UPDATE user SET email = ?, updated = ? WHERE id = ?`).run(email, now, id)
       logger.success(`update user ${id} email`)
     } else {
