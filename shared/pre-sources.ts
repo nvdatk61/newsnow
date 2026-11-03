@@ -76,13 +76,6 @@ export const originSources = {
     column: "vietnam",
     home: "https://dantri.com.vn/",
   },
-  vietnamnet: {
-    name: "VietnamNet",
-    color: "rose",
-    type: "realtime",
-    column: "vietnam",
-    home: "https://vietnamnet.vn/",
-  },
   genk: {
     name: "GenK",
     color: "orange",
