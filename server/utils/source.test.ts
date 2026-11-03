@@ -46,6 +46,12 @@ describe("defineRSSSource", () => {
     ])
   })
 
+  it("requests the feed as text so application/rss+xml is not returned as a Blob", async () => {
+    vi.mocked(myFetch).mockResolvedValue(feed as any)
+    await defineRSSSource("https://example.com/rss")()
+    expect(myFetch).toHaveBeenCalledWith("https://example.com/rss", { responseType: "text" })
+  })
+
   it("omits pubDate when hiddenDate is set", async () => {
     vi.mocked(myFetch).mockResolvedValue(feed as any)
     const items = await defineRSSSource("https://example.com/rss", { hiddenDate: true })()
