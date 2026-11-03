@@ -1,5 +1,5 @@
 import process from "node:process"
-import type { AllSourceID } from "@shared/types"
+import type { AllSourceID, NewsItem } from "@shared/types"
 import defu from "defu"
 import type { RSSHubOption, RSSHubInfo as RSSHubResponse, SourceGetter, SourceOption } from "#/types"
 
@@ -14,12 +14,22 @@ export function defineRSSSource(url: string, option?: SourceOption): SourceGette
   return async () => {
     const data = await rss2json(url)
     if (!data?.items.length) throw new Error("Cannot fetch rss data")
-    return data.items.map(item => ({
-      title: item.title,
-      url: item.link,
-      id: item.link,
-      pubDate: !option?.hiddenDate ? item.created : undefined,
-    }))
+    const seen = new Set<string>()
+    const news: NewsItem[] = []
+    for (const item of data.items) {
+      const link = typeof item.link === "string" ? item.link.trim() : ""
+      const title = item.title == null ? "" : String(item.title).trim()
+      // Skip malformed entries and duplicates (same article listed twice)
+      if (!link || !title || seen.has(link)) continue
+      seen.add(link)
+      news.push({
+        title,
+        url: link,
+        id: link,
+        pubDate: !option?.hiddenDate ? item.created : undefined,
+      })
+    }
+    return news
   }
 }
 

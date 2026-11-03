@@ -35,6 +35,10 @@ export interface PrimitiveMetadata {
 
 export type FixedColumnID = (typeof fixedColumnIds)[number]
 export type HiddenColumnID = Exclude<ColumnID, FixedColumnID>
+/**
+ * Columns a source can be assigned to (focus and hottest are computed)
+ */
+export type ManualColumnID = Exclude<ColumnID, "focus" | "hottest">
 
 export interface OriginSource extends Partial<Omit<Source, "name" | "redirect">> {
   name: string
@@ -70,7 +74,7 @@ export interface Source {
    * Default normal timeline
    */
   type?: "hottest" | "realtime"
-  column?: HiddenColumnID
+  column?: ManualColumnID
   home?: string
   /**
    * @default false

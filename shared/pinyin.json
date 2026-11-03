@@ -1,7 +1,13 @@
 {
   "hackernews": "Hacker News",
   "github-trending-today": "Github-Today",
-  "steam": "Steam",
-  "vnexpress": "VnExpress",
-  "tien24h": "24h"
+  "vnexpress-latest": "VnExpress-Mới nhất",
+  "vnexpress-tech": "VnExpress-Khoa học công nghệ",
+  "tien24h": "24h",
+  "tuoitre": "Tuổi Trẻ",
+  "thanhnien": "Thanh Niên",
+  "dantri": "Dân Trí",
+  "vietnamnet": "VietnamNet",
+  "genk": "GenK",
+  "tinhte": "Tinh tế"
 }
