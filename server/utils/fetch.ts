@@ -5,5 +5,6 @@ export const myFetch = $fetch.create({
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
   },
   timeout: 10000,
-  retry: 3,
+  // Keep worst case ~20s per source; a stale cache is served on failure anyway
+  retry: 1,
 })
